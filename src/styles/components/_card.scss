@@ -1,0 +1,80 @@
+.card {
+  height: 100px;
+  position: relative;
+  margin: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  overflow: hidden;
+  border-radius: 4px;
+  width: 160px;
+
+  &:hover {
+    transform: scale(1.25);
+    z-index: 2;
+  }
+
+  &:hover .infos {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  img {
+    height: 100px;
+    width: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .data-container {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 1;
+
+      ul {
+        transform: scaleY(1);
+      }
+    }
+
+    ul {
+      color: $color-2;  // Assure-toi que $color-2 est défini
+      padding-top: 5px;
+      display: grid;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      transform: scaleY(0.3);
+      z-index: 20;
+  
+      &:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.02s;  // Correction : ajout de l'unité 's'
+      }
+  
+      &:hover {  // Correction : suppression de l'espace entre hover et ::after
+        background-color: rgba(0, 0, 0, 0.938);
+      }
+    }
+
+    li {
+      font-size: 0.8rem;
+      z-index: 30;
+  
+      &:nth-child(1) {
+        font-weight: bold;
+        color: $color-1;  // Assure-toi que $color-1 est défini
+      }
+    }
+  } 
+}
